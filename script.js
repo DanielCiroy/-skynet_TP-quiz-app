@@ -103,10 +103,6 @@ function startQuiz() {
 }
 
 function AfficherQuestion() {
-    reinitialisation()
-
-
-
     let questionActuelle = questions[indexDuQuestionActuelle]
     let questionNumero = questionActuelle + 1
     questionElement.innerHTML = questionNumero + "." + questionActuelle.question
@@ -116,27 +112,7 @@ function AfficherQuestion() {
         button.innerHTML = answer.text
         button.classList.add('btn')
         answersButtons.appendChild(button);
-
-        if (answer.correct) {
-
-        }
-
-
-        button.addEventListener('click', clickAnswer)
     })
 }
-
-function reinitialisation() {
-    nextButton.style.display = 'none'
-
-    while (answersButtons.firstChild) {
-        answersButtons.removeChild(answersButtons.firstChild)
-
-    }
-}
-
-
-
-
 
 startQuiz()
