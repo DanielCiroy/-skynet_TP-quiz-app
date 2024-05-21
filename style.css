@@ -40,3 +40,12 @@
     border-radius: 4px;
     cursor: pointer;
 }
+
+.correct {
+    background: green;
+
+}
+
+.incorrect {
+    background: red;
+}

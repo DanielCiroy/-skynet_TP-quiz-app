@@ -103,6 +103,7 @@ function startQuiz() {
 }
 
 function AfficherQuestion() {
+    reinitialisation()
     let questionActuelle = questions[indexDuQuestionActuelle]
     let questionNumero = questionActuelle + 1
     questionElement.innerHTML = questionNumero + "." + questionActuelle.question
@@ -112,7 +113,64 @@ function AfficherQuestion() {
         button.innerHTML = answer.text
         button.classList.add('btn')
         answersButtons.appendChild(button);
+
+        if (answer.correct) {
+            button.dataset.correct = answer.correct
+        }
+
+        button.addEventListener('click', selectAnswer)
     })
 }
+
+function reinitialisation() {
+    nextButton.style.display = 'none'
+    while (answersButtons.firstChild) {
+        answersButtons.removeChild(answersButtons.firstChild)
+    }
+}
+
+
+function selectAnswer(e) {
+    let selectBtn = e.target
+    let iscorrect = selectBtn.dataset.correct === "true"
+    if (iscorrect) {
+        selectBtn.classList.add("correct")
+        score++
+    } else {
+        selectBtn.classList.add("incorrect")
+    }
+
+
+    nextButton.style.display = 'block'
+}
+
+function AfficherScore() {
+    reinitialisation()
+    questionElement.innerHTML = `score: ${score}/${questions.length}`
+
+    nextButton.innerHTML = 'Rejouer'
+    nextButton.style.display = 'block'
+}
+
+
+
+function buttonNextEffet() {
+    indexDuQuestionActuelle++
+    if (indexDuQuestionActuelle < questions.length) {
+        AfficherQuestion()
+    } else {
+        AfficherScore()
+    }
+}
+
+
+nextButton.addEventListener('click', function () {
+    if (indexDuQuestionActuelle < questions.length) {
+        buttonNextEffet()
+    } else {
+        startQuiz()
+    }
+})
+
 
 startQuiz()
