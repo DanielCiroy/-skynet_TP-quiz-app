@@ -2,7 +2,7 @@
 
 let questions = [
     {
-        question: 'quelle est lq capitale de la france?',
+        question: 'quelle est la capitale de la france?',
         answers: [
             {
                 text: "kishasa",
@@ -74,14 +74,92 @@ let questions = [
             },
             {
                 text: "barack obama",
-                correct: 'true'
+                correct: 'false'
             },
             {
                 text: "bill gate",
                 correct: 'false'
             }
         ]
+    },
+
+    {
+        question: 'que signifie HTML',
+        answers: [
+            {
+                text: "page de texte",
+                correct: 'false'
+            },
+            {
+                text: "hyper text manual lyric",
+                correct: 'false'
+            },
+            {
+                text: "hyper text manual langage",
+                correct: 'false'
+            },
+            {
+                text: "here text markup language",
+                correct: 'false'
+            },
+            {
+                text: "hyper text markup language",
+                correct: 'true'
+            }
+        ]
+    },
+
+    {
+        question: 'Que fait la balise p en html?',
+        answers: [
+            {
+                text: "inserer un titre",
+                correct: 'falsee'
+            },
+            {
+                text: "inserer un lien",
+                correct: 'false'
+            },
+            {
+                text: "inserer une paragraphe",
+                correct: 'true'
+            },
+            {
+                text: "souligner un text",
+                correct: 'false'
+            },
+            {
+                text: "mettre en gras un text",
+                correct: 'false'
+            }
+        ]
     }
+    {
+        question: 'Que fait la balise p en html?',
+        answers: [
+            {
+                text: "inserer un titre",
+                correct: 'falsee'
+            },
+            {
+                text: "inserer un lien",
+                correct: 'false'
+            },
+            {
+                text: "inserer une paragraphe",
+                correct: 'true'
+            },
+            {
+                text: "souligner un text",
+                correct: 'false'
+            },
+            {
+                text: "mettre en gras un text",
+                correct: 'false'
+            }
+        ]
+    }
+
 
 
 
@@ -164,7 +242,7 @@ function buttonNextEffet() {
 }
 
 
-nextButton.addEventListener('click', function () {
+nextButton.addEventListener('click', () => {
     if (indexDuQuestionActuelle < questions.length) {
         buttonNextEffet()
     } else {
